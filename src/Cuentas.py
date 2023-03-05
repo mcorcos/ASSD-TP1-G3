@@ -18,7 +18,7 @@ class Cuentas:
         self.fS = fS
         self.f0 = f0
         self.fAlias = self.calculateAliasFrequency()
-        self.harmonics = self.calculateHarmonics(fS, f0, maxF)
+        self.harmonics = self.calculateHarmonics(maxF)
 
         return self.f0, self.fS, self.fAlias, self.harmonics
 
