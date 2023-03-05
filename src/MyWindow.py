@@ -16,3 +16,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.rulerPlot = RulerPlot(self.frequencyPlot)
 
         self.cuentas = Cuentas()
+
+        self.plot()
+
+    def plot(self):
+        self.plotRuler()
+
+    def plotRuler(self):
+        f0, fS, fAlias, harmonics = self.cuentas.getFrequencies()
+        RulerPlot.plot(f0, fS, fAlias, harmonics)
