@@ -28,8 +28,10 @@ class RulerPlot(MplCanvas):
 
     def plot(self, f0, fS, fAlias, harmonics, maxF):
 
-        self.axes.set_xlim([0,maxF]) #fijar el eje y
 
+        self.axes.clear()
+        self.axes.set_xlim([0,maxF]) #fijar el eje x
+        self.axes.set_ylim([0,1]) #fijar el eje x
         self.axes.spines['top'].set_visible(False) #sacobordearriba
         self.axes.spines['left'].set_visible(False)  # eliminar el eje y
         self.axes.spines['right'].set_visible(False)  # eliminar el eje x
@@ -39,12 +41,24 @@ class RulerPlot(MplCanvas):
 
        
         #creo las deltas para cada caso 
-        self.axes.stem(f0,0.9,'b','b')
-        self.axes.stem(fS,0.9,'r','r')
-        self.axes.stem(fAlias,0.9,'--g','g')
+        self.axes.stem(harmonics[0],0.7,'-.m','m',label='harmonics')
         for i in range(len(harmonics)):
-            self.axes.stem(harmonics[i],0.9,'-.m','m')
+            self.axes.stem(harmonics[i],0.7,'-.m','m')    
+            plt.annotate(str(harmonics[i]) , xy=(harmonics[i],-0.1)   )
+        self.axes.stem(f0,0.7,'b','b',label='f0')
+        self.axes.stem(fS,0.7,'r','r',label='fS')
 
+        if fAlias is not None:
+            self.axes.stem(fAlias,0.7,'--g','g',label='fAlias')
+
+
+        #labels de stems
+
+        self.axes.legend(ncol=4, loc='upper right' ,prop={'size': 7})
+
+
+
+ 
 
 
         self.fig.canvas.draw_idle()
