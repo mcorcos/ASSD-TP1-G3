@@ -7,14 +7,14 @@ class Cuentas:
 
     """
 
-    def __init__(self, fS=27, f0=100, periods=10, maxF=1000):
+    def __init__(self, f0=75, fS=200, periods=10, maxF=1000):
         self.fS = fS
         self.f0 = f0
         self.periodsShown = periods
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
 
-    def getFrequencies(self, fS=27, f0=100, maxF=1000):
+    def getFrequencies(self, f0=75, fS=200, maxF=1000):
         """
         @param fS:
         @param f0:

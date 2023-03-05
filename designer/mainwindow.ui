@@ -271,6 +271,9 @@
               <property name="singleStep">
                <number>1</number>
               </property>
+              <property name="value">
+               <number>7500</number>
+              </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -305,8 +308,14 @@
             </item>
             <item row="0" column="4">
              <widget class="QSlider" name="sliderSampleFreq">
+              <property name="minimum">
+               <number>1</number>
+              </property>
               <property name="maximum">
                <number>100000</number>
+              </property>
+              <property name="sliderPosition">
+               <number>20000</number>
               </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -328,8 +337,14 @@
             </item>
             <item row="1" column="4">
              <widget class="QDoubleSpinBox" name="sampleFreq">
+              <property name="minimum">
+               <double>0.010000000000000</double>
+              </property>
               <property name="maximum">
                <double>1000.000000000000000</double>
+              </property>
+              <property name="value">
+               <double>200.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -337,6 +352,9 @@
              <widget class="QDoubleSpinBox" name="signalFreq">
               <property name="maximum">
                <double>500.000000000000000</double>
+              </property>
+              <property name="value">
+               <double>75.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -354,7 +372,17 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="1">
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="checkBox_2">
+            <property name="text">
+             <string>Show spectrum before LP Filter</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2" alignment="Qt::AlignRight">
            <widget class="QComboBox" name="comboBox">
             <item>
              <property name="text">
@@ -393,13 +421,26 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="checkBox_2">
-            <property name="text">
-             <string>Show spectrum before LP Filter</string>
+          <item row="2" column="2">
+           <widget class="QSlider" name="scaleSlider">
+            <property name="minimum">
+             <number>1</number>
             </property>
-            <property name="checked">
-             <bool>true</bool>
+            <property name="maximum">
+             <number>1000</number>
+            </property>
+            <property name="sliderPosition">
+             <number>500</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Max Freq Scale</string>
             </property>
            </widget>
           </item>
