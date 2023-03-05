@@ -26,7 +26,7 @@ class RulerPlot(MplCanvas):
         if parent is not None:
             super().__init__(parent)
 
-    def plot(self, f0, fS, fAlias, harmonics, maxF):
+    def plot(self, f0, fS, fAlias, harmonics, maxF = 500):
 
 
         self.axes.clear()
@@ -40,7 +40,7 @@ class RulerPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
 
        
-        #creo las deltas para cada caso 
+        #creo las deltas para cada caso
         self.axes.stem(harmonics[0],0.7,'-.m','m',label='harmonics')
         for i in range(len(harmonics)):
             self.axes.stem(harmonics[i],0.7,'-.m','m')    

@@ -24,6 +24,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.signalFreq.valueChanged.connect(self.doubleToSliderSig)
         self.sliderSampleFreq.sliderMoved.connect(self.sliderSampleToDouble)
         self.sampleFreq.valueChanged.connect(self.doubleToSliderSample)
+        self.scaleSlider.sliderMoved.connect(self.scaleSliderMoved)
 
 
     def updatePlots(self):
@@ -40,21 +41,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     # Configuración de las pestañas y clicks
     def sliderSigToDouble(self, value):
-        val = float(value) / 100
+        val = float(value)
         self.signalFreq.setValue(val)
         self.updatePlots()
 
     def doubleToSliderSig(self, value):
-        val = int(value*100)
+        val = int(value)
         self.sliderSignalFreq.setValue(val)
         self.updatePlots()
 
     def sliderSampleToDouble(self, value):
-        val = float(value) / 100
+        val = float(value)
         self.sampleFreq.setValue(val)
         self.updatePlots()
 
     def doubleToSliderSample(self, value):
-        val = int(value*100)
+        val = int(value)
         self.sliderSampleFreq.setValue(val)
+        self.updatePlots()
+
+    def scaleSliderMoved(self):
         self.updatePlots()
