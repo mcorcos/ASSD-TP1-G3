@@ -6,6 +6,7 @@ from src.ui.mainwindow import Ui_MainWindow
 from src.Cuentas import Cuentas
 from src.MPLClasses import RulerPlot
 
+
 class MainWindow(QMainWindow, Ui_MainWindow):
 
     def __init__(self):
@@ -15,9 +16,3 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.rulerPlot = RulerPlot(self.frequencyPlot)
 
         self.cuentas = Cuentas()
-
-
-
-
-
-
