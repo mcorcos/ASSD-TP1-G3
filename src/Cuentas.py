@@ -6,11 +6,11 @@
 
 class Cuentas:
 
-    def __init__(self, fS = 27, f0 = 100):
+    def __init__(self, fS = 27, f0 = 100, maxF = 1000):
         self.fS = fS
         self.f0 = f0
         self.fAlias = self.calculateAliasFrequency(fS, f0)
-        self.harmonics = self.calculatesHarmonics(fS, f0)
+        self.harmonics = self.calculateHarmonics(fS, f0, maxF)
 
     ###########################################################################
     # calculateAliasFrequency
@@ -28,10 +28,24 @@ class Cuentas:
         return fAlias
 
     ###################################################################################
-    # calculatesHarmonics
+    # calculateHarmonics
     ###################################################################################
-    def calculatesHarmonics(self,fS, f0):
-        return
+    def calculateHarmonics(self, fS, f0, maxF = 1000):
+        delta = f0 % f0
+        if delta > fS / 2:
+            delta = fS - delta
+
+        harmonics = []
+
+        f1 = delta
+        f2 = fS - delta
+        while(f1 < maxF):
+            harmonics.append(f1)
+            harmonics.append(f2)
+            f1 += fS
+            f2 += fS
+
+        return harmonics
 
     ###################################################################################
     # setFrequencies
