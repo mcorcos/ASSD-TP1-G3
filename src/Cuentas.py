@@ -35,7 +35,7 @@ class Cuentas:
         self.periodsShown = periods
         t = np.linspace(0, periods * 1 / self.f0, n)
         y = np.sin(2 * np.pi * self.f0 * t)
-        return t, y
+        return [t, y]
 
     def getAliasSignal(self, n=1000):
         """
@@ -45,7 +45,7 @@ class Cuentas:
         maxT = self.periodsShown * 1 / self.f0
         t = np.linspace(0, maxT, n)
         y = np.sin(2 * np.pi * self.fAlias * t)
-        return t, y
+        return [t, y]
 
     def getSamplingPoints(self):
         """
@@ -55,7 +55,7 @@ class Cuentas:
         maxT = self.periodsShown * 1 / self.f0
         t = np.arange(0, maxT, 1 / self.fS)
         y = np.sin(2 * np.pi * self.f0 * t)
-        return t, y
+        return [t, y]
 
     ###################################################################################
     ###################################################################################

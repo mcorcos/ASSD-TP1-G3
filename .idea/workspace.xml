@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="Faltan los gráficos de las senoidales">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designer/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/designer/mainwindow.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MPLClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MPLClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cuentas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cuentas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/mainwindow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678056351221</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Faltan los gráficos de las senoidales">
+      <created>1678057011856</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1678057011856</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,18 +232,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/Cuentas.py</url>
-          <line>74</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/src/MPLClasses.py</url>
-          <line>31</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
