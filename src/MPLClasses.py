@@ -1,7 +1,7 @@
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas,\
     NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
-
+import matplotlib.pyplot as plt
 
 class MplCanvas(FigureCanvas):
     """
@@ -26,21 +26,25 @@ class RulerPlot(MplCanvas):
         if parent is not None:
             super().__init__(parent)
 
-    def plot(self, f0, fS, fAlias, harmonics):
-        self.axes.set_ylim([0,1]) #fijar el eje y
+    def plot(self, f0, fS, fAlias, harmonics, maxF):
+
+        self.axes.set_xlim([0,maxF]) #fijar el eje y
+
         self.axes.spines['top'].set_visible(False) #sacobordearriba
-        self.axes.spines['bottom'].set_visible(False) #sacobordeabajo
+        self.axes.spines['left'].set_visible(False)  # eliminar el eje y
+        self.axes.spines['right'].set_visible(False)  # eliminar el eje x
 
-        #creo la regla
-        start = 0
-        end = 100
-        steps = end/10
+        #hide y-axis 
+        self.axes.get_yaxis().set_visible(False)
 
-        for i in range(int((end-start)/10) +1):
-            self.axes.axvline(x=start+i*steps,linewidth=0.5,color='k') #crear lineas
-            self.axes.text(start+i*steps,-1,str(start+i*steps),ha='center',fontsize=8) # crear los numeritos bajo cada linea
-
+       
         #creo las deltas para cada caso 
+        self.axes.stem(f0,0.9,'b','b')
+        self.axes.stem(fS,0.9,'r','r')
+        self.axes.stem(fAlias,0.9,'--g','g')
+        for i in range(len(harmonics)):
+            self.axes.stem(harmonics[i],0.9,'-.m','m')
+
 
 
         self.fig.canvas.draw_idle()

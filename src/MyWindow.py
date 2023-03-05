@@ -24,4 +24,4 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def plotRuler(self):
         f0, fS, fAlias, harmonics = self.cuentas.getFrequencies()
-        RulerPlot.plot(f0, fS, fAlias, harmonics)
+        self.rulerPlot.plot(200, 400, 800, [300,500,600]   ,  maxF=1000)
