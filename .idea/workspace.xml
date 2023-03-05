@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="Calculados los Armonics (falta testear que ande todo esto)">
+    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="Está creado un &quot;template&quot; para obtener las señales en el tiempo">
+      <change afterPath="$PROJECT_DIR$/src/MPLClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cuentas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cuentas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/designer/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/designer/mainwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MyWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ui/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/mainwindow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +149,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677975190432</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Está creado un &quot;template&quot; para obtener las señales en el tiempo">
+      <created>1677976704931</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677976704931</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Está creado un &quot;template&quot; para obtener las señales en el tiempo">
+      <created>1678043843398</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678043843398</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +182,7 @@
     <MESSAGE value="MainWindow" />
     <MESSAGE value="Calculada la Alias Frequency" />
     <MESSAGE value="Calculados los Armonics (falta testear que ande todo esto)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Calculados los Armonics (falta testear que ande todo esto)" />
+    <MESSAGE value="Está creado un &quot;template&quot; para obtener las señales en el tiempo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Está creado un &quot;template&quot; para obtener las señales en el tiempo" />
   </component>
 </project>

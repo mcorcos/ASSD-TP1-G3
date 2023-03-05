@@ -181,7 +181,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_7">
+        <widget class="QFrame" name="frequencyPlot">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
