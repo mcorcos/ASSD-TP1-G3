@@ -70,14 +70,14 @@ class RulerPlot(MplCanvas):
 
 
         #ticks en eje x de las deltas
-        self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
-            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
-            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
-            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
-            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+       # self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
+         #   arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        #self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
+         #   arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+       # self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
+        #    arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        #self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
+         #   arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
 
 
 
