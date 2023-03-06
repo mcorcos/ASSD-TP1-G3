@@ -86,24 +86,16 @@ class TempPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
         self.axes.axhline(y=0,color='black')
         #grafico los samples
-        array_fS_x = array_fS[0]
-        array_fS_y = array_fS[1]
 
-        if(len(array_fS_x)>0):
-            for i in range(len(array_fS_x)):
-                self.axes.stem(array_fS_x[i],array_fS_y[i],'r','or')
-
+        if(len(array_fS[0])>0):
+            self.axes.stem(array_fS[0],array_fS[1],'r','or')
 
         #grafico la frecuencia fundamental
-        array_f0_x = array_f0[0]
-        array_f0_y = array_f0[1]
-        self.axes.plot(array_f0_x , array_f0_y,color='b')
+        self.axes.plot(array_f0[0] , array_f0[1],color='b')
 
         #grafico Alias
-        array_fAlias_x = array_fAlias[0]
-        array_fAlias_y = array_fAlias[1]
-        if array_fAlias_x is not None:
-            self.axes.plot(array_fAlias_x, array_fAlias_y,color='g',linestyle='dashed')
+        if array_fAlias[0] is not None:
+            self.axes.plot(array_fAlias[0], array_fAlias[1],color='g',linestyle='dashed')
 
 
 
