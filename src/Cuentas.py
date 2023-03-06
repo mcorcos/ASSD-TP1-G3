@@ -110,14 +110,21 @@ class Cuentas:
         if delta > self.fS / 2:
             delta = self.fS - delta
 
-        harmonics = []
+
+        x = []
+        y = []
+        harmonics = [x,y]
+
 
         f1 = delta
         f2 = self.fS - delta
         while f1 < maxF:
-            harmonics.append(f1)
-            harmonics.append(f2)
+            harmonics[0].append(f1)
+            harmonics[0].append(f2)
+            harmonics[1].append(0.6) 
+            harmonics[1].append(0.6)           
             f1 += self.fS
             f2 += self.fS
+
 
         return harmonics
