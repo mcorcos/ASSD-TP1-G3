@@ -84,14 +84,12 @@ class TempPlot(MplCanvas):
 
         #hide y-axis 
         self.axes.get_yaxis().set_visible(False)
-
-
-
+        self.axes.axhline(y=0,color='black')
         #grafico los samples
 
         if(len(array_fS_x)>0):
             for i in range(len(array_fS_x)):
-                self.axes.stem(array_fS_x[i],array_fS_y[i],'r','r')
+                self.axes.stem(array_fS_x[i],array_fS_y[i],'r','or')
 
 
         #grafico la frecuencia fundamental
