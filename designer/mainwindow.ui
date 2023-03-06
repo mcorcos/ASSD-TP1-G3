@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
-    <height>501</height>
+    <width>833</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,18 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QFrame" name="frame_3">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>200</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -121,6 +133,18 @@
     </item>
     <item>
      <widget class="QFrame" name="frame_2">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>150</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>150</height>
+       </size>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -218,6 +242,12 @@
     </item>
     <item>
      <widget class="QFrame" name="frame">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>200</height>
+       </size>
+      </property>
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
@@ -257,6 +287,12 @@
        </item>
        <item>
         <widget class="QFrame" name="frame_4">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>75</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -282,7 +318,10 @@
                <number>1</number>
               </property>
               <property name="value">
-               <number>75</number>
+               <number>20</number>
+              </property>
+              <property name="sliderPosition">
+               <number>20</number>
               </property>
               <property name="tracking">
                <bool>true</bool>
@@ -328,7 +367,7 @@
                <double>1000.000000000000000</double>
               </property>
               <property name="value">
-               <double>200.000000000000000</double>
+               <double>22.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -341,10 +380,10 @@
                <number>1000</number>
               </property>
               <property name="value">
-               <number>200</number>
+               <number>22</number>
               </property>
               <property name="sliderPosition">
-               <number>200</number>
+               <number>22</number>
               </property>
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
@@ -363,7 +402,7 @@
                <double>500.000000000000000</double>
               </property>
               <property name="value">
-               <double>75.000000000000000</double>
+               <double>20.000000000000000</double>
               </property>
              </widget>
             </item>
@@ -374,6 +413,12 @@
        </item>
        <item>
         <widget class="QFrame" name="frame_10">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>75</height>
+          </size>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -382,7 +427,7 @@
          </property>
          <layout class="QGridLayout" name="gridLayout">
           <item row="2" column="0">
-           <widget class="QCheckBox" name="checkBox_2">
+           <widget class="QCheckBox" name="filterCheck">
             <property name="text">
              <string>Show spectrum before LP Filter</string>
             </property>
@@ -391,37 +436,8 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2" alignment="Qt::AlignRight">
-           <widget class="QComboBox" name="comboBox">
-            <item>
-             <property name="text">
-              <string>Hz</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>KHz</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>MHz</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>GHz</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>THz</string>
-             </property>
-            </item>
-           </widget>
-          </item>
           <item row="0" column="0">
-           <widget class="QCheckBox" name="checkBox">
+           <widget class="QCheckBox" name="aliasCheck">
             <property name="text">
              <string>Show alias signal</string>
             </property>
@@ -446,7 +462,7 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="2" alignment="Qt::AlignHCenter">
+          <item row="0" column="2" alignment="Qt::AlignHCenter">
            <widget class="QLabel" name="label_9">
             <property name="text">
              <string>Max Freq Scale</string>

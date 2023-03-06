@@ -7,12 +7,13 @@ class Cuentas:
 
     """
 
-    def __init__(self, f0 = 1, fS = 1, periods=10, maxF=5):
+    def __init__(self, f0=1, fS=1, periods=10, maxF=5):
         self.fS = fS
         self.f0 = f0
         self.periodsShown = periods
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
+        self.maxTimeInterval = self.periodsShown * (1 / self.f0) if (self.f0 > 0.000001) else 1
 
     def getFrequencies(self, f0, fS, maxF):
         """
@@ -26,22 +27,26 @@ class Cuentas:
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
 
+        self.maxTimeInterval = self.periodsShown * (1 / self.f0) if (self.f0 > 0.000001) else 1
+
         return self.f0, self.fS, self.fAlias, self.harmonics
+
+    def getMaxTimeInterval(self):
+        return self.maxTimeInterval
 
     def getSignal(self, periods, n):
         """
         @return:
         """
 
-        #periodos * (1/f0) es cuenta tiene q dar mayor a 1. si es menor a uno poner 1
+        # periodos * (1/f0) es cuenta tiene q dar mayor a 1. si es menor a uno poner 1
 
-        maxT = self.periodsShown/self.f0 
-
-        if(maxT<1):
+        '''if(maxT<1):
             t = np.linspace(0,1,n)
         else:
-            t = np.linspace(0,maxT, n)
+            t = np.linspace(0,maxT, n)'''
 
+        t = np.linspace(0, self.maxTimeInterval, n)
         y = np.sin(2 * np.pi * self.f0 * t)
         return [t, y]
 
@@ -51,16 +56,22 @@ class Cuentas:
         @return:
         """
         if self.fAlias is None:
-            return None , None
-        
+            return None, None
 
-        maxT = (self.periodsShown) * 1 / self.f0
-        if(maxT<1):
+        '''if(maxT<1):
             t = np.linspace(0,1,n)
         else:
-            t = np.linspace(0,maxT, n)
+            t = np.linspace(0,maxT, n)'''
 
-        y = np.sin(2 * np.pi * self.fAlias * t)
+        t = np.linspace(0, self.maxTimeInterval, n)
+
+        delta = self.f0 % self.fS
+
+        if delta < self.fS / 2:
+            y = np.sin(2 * np.pi * self.fAlias * t)
+        else:
+            y = -np.sin(2 * np.pi * self.fAlias * t)
+
         return [t, y]
 
     def getSamplingPoints(self):
@@ -68,12 +79,13 @@ class Cuentas:
 
         @return:
         """
-        maxT = (self.periodsShown) * (1 / self.f0)
-        if(maxT<1):
+
+        '''if(maxT<1):
             t = np.arange(0,1, 1/ self.fS)
         else:
-            t = np.arange(0,maxT, 1/ self.fS)
+            t = np.arange(0,maxT, 1/ self.fS)'''
 
+        t = np.arange(0, self.maxTimeInterval, 1 / self.fS)
         y = np.sin(2 * np.pi * self.f0 * t)
         return [t, y]
 
@@ -110,11 +122,9 @@ class Cuentas:
         if delta > self.fS / 2:
             delta = self.fS - delta
 
-
         x = []
         y = []
-        harmonics = [x,y]
-
+        harmonics = [x, y]
 
         f1 = delta
         f2 = self.fS - delta
@@ -125,6 +135,5 @@ class Cuentas:
             harmonics[1].append(0.6)           
             f1 += self.fS
             f2 += self.fS
-
 
         return harmonics
