@@ -72,7 +72,7 @@ class TempPlot(MplCanvas):
         if parent is not None:
             super().__init__(parent)
 
-    def plot(self,array_f0_x , array_f0_y , array_fS_x , array_fS_y , array_fAlias_x, array_fAlias_y):
+    def plot(self,array_f0, array_fS, array_fAlias):
 
 
 
@@ -86,6 +86,8 @@ class TempPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
         self.axes.axhline(y=0,color='black')
         #grafico los samples
+        array_fS_x = array_fS[0]
+        array_fS_y = array_fS[1]
 
         if(len(array_fS_x)>0):
             for i in range(len(array_fS_x)):
@@ -93,11 +95,13 @@ class TempPlot(MplCanvas):
 
 
         #grafico la frecuencia fundamental
-
+        array_f0_x = array_f0[0]
+        array_f0_y = array_f0[1]
         self.axes.plot(array_f0_x , array_f0_y,color='b')
 
         #grafico Alias
-
+        array_fAlias_x = array_fAlias[0]
+        array_fAlias_y = array_fAlias[1]
         if array_fAlias_x is not None:
             self.axes.plot(array_fAlias_x, array_fAlias_y,color='g',linestyle='dashed')
 

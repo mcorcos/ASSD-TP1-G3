@@ -40,10 +40,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def plotTemp(self):
 
-        array_f0_x,array_f0_y = self.cuentas.getSignal(10,500)
-        array_fAlias_x , array_fAlias_y = self.cuentas.getAliasSignal(500)
-        array_fS_x , array_fS_y = self.cuentas.getSamplingPoints()
-        self.tempPlot.plot(array_f0_x , array_f0_y , array_fS_x , array_fS_y , array_fAlias_x, array_fAlias_y)
+        array_f0 = self.cuentas.getSignal(10,500)
+        array_fAlias = self.cuentas.getAliasSignal(500)
+        array_fS = self.cuentas.getSamplingPoints()
+        self.tempPlot.plot(array_f0, array_fS , array_fAlias)
 
 
     # Configuración de las pestañas y clicks
