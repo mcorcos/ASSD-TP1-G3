@@ -48,7 +48,7 @@ class RulerPlot(MplCanvas):
 
         #creo las deltas para cada caso 
         if(len(harmonics[0])>0): 
-            self.axes.stem(harmonics[0], harmonics[1],'--m','^m')
+            self.axes.stem(harmonics[0], harmonics[1],'m','^m')
 
 
         self.axes.stem(f0,0.6,'b','^b')
