@@ -80,7 +80,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="frame_9">
+        <widget class="QFrame" name="temporalPlot">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
@@ -104,7 +104,7 @@
            <number>0</number>
           </property>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <layout class="QHBoxLayout" name="temporal_layout">
             <property name="spacing">
              <number>0</number>
             </property>
