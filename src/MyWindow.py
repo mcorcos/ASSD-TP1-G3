@@ -41,8 +41,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def plotTemp(self):
 
-        array_f0 = self.cuentas.getSignal(10,400)
-        array_fAlias = self.cuentas.getAliasSignal(400)
+        array_f0 = self.cuentas.getSignal(10,300)
+        array_fAlias = self.cuentas.getAliasSignal(300)
         array_fS = self.cuentas.getSamplingPoints()
         self.tempPlot.plot(array_f0, array_fS , array_fAlias)
 

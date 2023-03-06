@@ -3,6 +3,11 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
 
+import matplotlib.patches as mpatches
+
+
+
+
 class MplCanvas(FigureCanvas):
     """
         MplCanvas
@@ -40,27 +45,52 @@ class RulerPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
 
        
+
         #creo las deltas para cada caso 
-        if(len(harmonics)>0):
-            self.axes.stem(harmonics[0],0.7,'-.m','m',label='harmonics')
-            for i in range(len(harmonics)):
-                self.axes.stem(harmonics[i],0.7,'-.m','m')    
-                self.axes.annotate(str(harmonics[i]) , xy=(harmonics[i],-0.1)   )
-        self.axes.stem(f0,0.7,'b','b',label='f0')
-        self.axes.stem(fS,0.7,'r','r',label='fS')
-        self.axes.stem(fS/2,0.7,'--k','k',label='f.Nyquist')
+        if(len(harmonics[0])>0): 
+            self.axes.stem(harmonics[0], harmonics[1],'--m','^m')
+
+
+        self.axes.stem(f0,0.6,'b','^b')
+        self.axes.stem(fS,0.6,'--r','r')
 
         if fAlias is not None:
-            self.axes.stem(fAlias,0.7,'--g','g',label='fAlias')
+            self.axes.stem(fAlias,0.6,'--g','^g')
+
+        self.axes.stem(fS/2,0.6,'--k','k')
 
 
-        #labels de stems
+        #stems labeling
 
-        self.axes.legend(ncol=4, loc='upper right' ,prop={'size': 10})
+        fS_patch = mpatches.Patch(color='r',label='fS')
+        f0_patch = mpatches.Patch(color='b',label='f0')
+        fAlias_patch = mpatches.Patch(color='g',label='fAlias')
+        fH_patch = mpatches.Patch(color='m',label='Harmonics')
+        fNy_patch = mpatches.Patch(color='k',label='f.Nyquist')
+
+
+        #ticks en eje x de las deltas
+        self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
+            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
+            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
+            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
+            arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
 
 
 
- 
+
+
+
+        self.axes.legend(handles=[fS_patch,f0_patch,fAlias_patch,fH_patch,fNy_patch], ncol = 5, prop = {'size': 7}, loc= 'upper right')
+
+
+
+
+
+
 
         self.fig.canvas.draw_idle()
 
