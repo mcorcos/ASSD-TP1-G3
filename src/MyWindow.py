@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMainWindow
 # Project modules
 from src.ui.mainwindow import Ui_MainWindow
 from src.Cuentas import Cuentas
-from src.MPLClasses import RulerPlot
+from src.MPLClasses import RulerPlot,TempPlot
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -13,13 +13,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
 
-        self.rulerPlot = RulerPlot(self.frequencyPlot)
-
         self.cuentas = Cuentas()
+        self.rulerPlot = RulerPlot(self.frequencyPlot)
+        self.tempPlot = TempPlot(self.temporalPlot)
+
 
         self.updatePlots()
-
-        # Configuración de las pestañas y clicks
+                # Configuración de las pestañas y clicks
         self.sliderSignalFreq.sliderMoved.connect(self.sliderSigToDouble)
         self.signalFreq.valueChanged.connect(self.doubleToSliderSig)
         self.sliderSampleFreq.sliderMoved.connect(self.sliderSampleToDouble)
@@ -29,6 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def updatePlots(self):
         self.plotRuler()
+        self.plotTemp()
 
     def plotRuler(self):
         fSig = self.signalFreq.value()
@@ -37,6 +38,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         f0, fS, fAlias, harmonics = self.cuentas.getFrequencies(fSig, fSample, fMax)
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
+
+    def plotTemp(self):
+
+        array_f0 = self.cuentas.getSignal(10,400)
+        array_fAlias = self.cuentas.getAliasSignal(400)
+        array_fS = self.cuentas.getSamplingPoints()
+        self.tempPlot.plot(array_f0, array_fS , array_fAlias)
 
 
     # Configuración de las pestañas y clicks
