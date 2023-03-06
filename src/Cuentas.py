@@ -7,14 +7,14 @@ class Cuentas:
 
     """
 
-    def __init__(self, f0=12, fS=200, periods=10, maxF=1000):
+    def __init__(self, f0 = 1, fS = 1, periods=10, maxF=5):
         self.fS = fS
         self.f0 = f0
         self.periodsShown = periods
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
 
-    def getFrequencies(self, f0=75, fS=200, maxF=1000):
+    def getFrequencies(self, f0, fS, maxF):
         """
         @param fS:
         @param f0:
@@ -28,7 +28,7 @@ class Cuentas:
 
         return self.f0, self.fS, self.fAlias, self.harmonics
 
-    def getSignal(self, periods=10, n=500):
+    def getSignal(self, periods, n):
         """
         @return:
         """
@@ -45,7 +45,7 @@ class Cuentas:
         y = np.sin(2 * np.pi * self.f0 * t)
         return [t, y]
 
-    def getAliasSignal(self, n=500):
+    def getAliasSignal(self, n):
         """
 
         @return:
@@ -100,7 +100,7 @@ class Cuentas:
 
         return fAlias
 
-    def calculateHarmonics(self, maxF=1000):
+    def calculateHarmonics(self, maxF):
         """
 
         @param maxF:

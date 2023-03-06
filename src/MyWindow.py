@@ -13,9 +13,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__()
         self.setupUi(self)
 
+        self.cuentas = Cuentas()
         self.rulerPlot = RulerPlot(self.frequencyPlot)
         self.tempPlot = TempPlot(self.temporalPlot)
-        self.cuentas = Cuentas()
+
 
         self.updatePlots()
                 # Configuración de las pestañas y clicks
@@ -40,8 +41,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def plotTemp(self):
 
-        array_f0 = self.cuentas.getSignal(10,500)
-        array_fAlias = self.cuentas.getAliasSignal(500)
+        array_f0 = self.cuentas.getSignal(10,400)
+        array_fAlias = self.cuentas.getAliasSignal(400)
         array_fS = self.cuentas.getSamplingPoints()
         self.tempPlot.plot(array_f0, array_fS , array_fAlias)
 

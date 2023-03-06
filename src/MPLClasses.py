@@ -48,6 +48,7 @@ class RulerPlot(MplCanvas):
                 self.axes.annotate(str(harmonics[i]) , xy=(harmonics[i],-0.1)   )
         self.axes.stem(f0,0.7,'b','b',label='f0')
         self.axes.stem(fS,0.7,'r','r',label='fS')
+        self.axes.stem(fS/2,0.7,'--k','k',label='f.Nyquist')
 
         if fAlias is not None:
             self.axes.stem(fAlias,0.7,'--g','g',label='fAlias')
@@ -55,7 +56,7 @@ class RulerPlot(MplCanvas):
 
         #labels de stems
 
-        self.axes.legend(ncol=4, loc='upper right' ,prop={'size': 7})
+        self.axes.legend(ncol=4, loc='upper right' ,prop={'size': 10})
 
 
 
@@ -80,7 +81,7 @@ class TempPlot(MplCanvas):
         self.axes.clear()
 
         self.axes.set_xlim([0,1]) #fijar el eje x
-        self.axes.set_ylim([-1,1]) #fijar el eje x
+        self.axes.set_ylim([-1.3,1.3]) #fijar el eje x
 
         #hide y-axis 
         self.axes.get_yaxis().set_visible(False)
