@@ -69,7 +69,7 @@ class Cuentas:
         else:
             y = -np.sin(2 * np.pi * self.fAlias * t)
 
-        return [t, y]
+        return [t, y,self.fAlias]
 
     def getSamplingPoints(self):
         """

@@ -15,8 +15,8 @@ class MplCanvas(FigureCanvas):
 
         self.axes = self.fig.add_subplot()
         self.fig.set_tight_layout(True)
-        # self.navToolBar = NavigationToolbar(self, parent=parent)
-        # parent.layout().addWidget(self.navToolBar)
+        #self.navToolBar = NavigationToolbar(self, parent=parent)
+        #parent.layout().addWidget(self.navToolBar)
         parent.layout().addWidget(self)
 
 
@@ -54,29 +54,15 @@ class RulerPlot(MplCanvas):
 
         # stems labeling
 
-        fS_patch = mpatches.Patch(color='r', label='fS')
-        f0_patch = mpatches.Patch(color='b', label='f0')
-        fAlias_patch = mpatches.Patch(color='g', label='fAlias')
+        fS_patch = mpatches.Patch(color='r', label='fS='+str(fS)+'Hz')
+        f0_patch = mpatches.Patch(color='b', label='f0='+str(f0)+'Hz')
+        fAlias_patch = mpatches.Patch(color='g', label='fAlias='+str(fAlias)+'Hz')
         fH_patch = mpatches.Patch(color='m', label='Harmonics')
-        fNy_patch = mpatches.Patch(color='k', label='f.Nyquist')
+        fNy_patch = mpatches.Patch(color='k', label='f.Nyquist='+str(fS/2)+'Hz')
 
-        # ticks en eje x de las deltas
-        '''
-        self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
-        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-
-        self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
-        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-
-        self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
-        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-
-        self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
-        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        '''
 
         self.axes.legend(handles=[fS_patch, f0_patch, fAlias_patch, fH_patch, fNy_patch],
-                         ncol=5, prop={'size': 7}, loc='upper right')
+                         ncol=5, prop={'size': 5}, loc='upper right')
 
         self.fig.canvas.draw()
 
@@ -110,5 +96,12 @@ class TempPlot(MplCanvas):
         # grafico Alias
         if array_fAlias[0] is not None:
             self.axes.plot(array_fAlias[0], array_fAlias[1], color='g', linestyle='dashed')
+            #grafico el label de alias
+
+            fAlias_patch = mpatches.Patch(color='g', label='fAlias='+str(array_fAlias[2])+'Hz')
+
+            self.axes.legend(handles=[fAlias_patch],
+                        ncol=5, prop={'size': 7}, loc='upper center')
+        
 
         self.fig.canvas.draw()
