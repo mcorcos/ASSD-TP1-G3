@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="Faltan los gráficos de las senoidales">
+    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="Hay que mejorar la parte gráfica y ver lo de cuánto espacio temporal mostrar.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/designer/mainwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/designer/mainwindow.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cuentas.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cuentas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MPLClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MPLClasses.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MyWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/backup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/mainwindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/mainwindow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,14 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Bruno/ITBA/5to cuatri/Teoría de circuitos/TPS/TP4/Filter_Tool_Grupo_6&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Bruno/ITBA/5to cuatri/Teoría de circuitos/TPS/TP1/TP1 Grupo 6",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Python.main">
     <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="TP1" />
@@ -213,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678058028775</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Hay que mejorar la parte gráfica y ver lo de cuánto espacio temporal mostrar.">
+      <created>1678142466500</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678142466500</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +244,8 @@
     <MESSAGE value="Llamo a la funcion" />
     <MESSAGE value="Interaccion usuario" />
     <MESSAGE value="Faltan los gráficos de las senoidales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Faltan los gráficos de las senoidales" />
+    <MESSAGE value="Hay que mejorar la parte gráfica y ver lo de cuánto espacio temporal mostrar." />
+    <option name="LAST_COMMIT_MESSAGE" value="Hay que mejorar la parte gráfica y ver lo de cuánto espacio temporal mostrar." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

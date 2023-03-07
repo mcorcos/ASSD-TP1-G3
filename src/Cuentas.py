@@ -7,13 +7,12 @@ class Cuentas:
 
     """
 
-    def __init__(self, f0=1, fS=1, periods=10, maxF=5):
+    def __init__(self, f0=20, fS=22, maxTimeInterval=1, maxF=5):
         self.fS = fS
         self.f0 = f0
-        self.periodsShown = periods
+        self.masxTimeInterval = maxTimeInterval
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
-        self.maxTimeInterval = self.periodsShown * (1 / self.f0) if (self.f0 > 0.000001) else 1
 
     def getFrequencies(self, f0, fS, maxF):
         """
@@ -27,20 +26,18 @@ class Cuentas:
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
 
-        self.maxTimeInterval = self.periodsShown * (1 / self.f0) if (self.f0 > 0.000001) else 1
-
         return self.f0, self.fS, self.fAlias, self.harmonics
 
     def getMaxTimeInterval(self):
         return self.maxTimeInterval
 
-    def getSignal(self, periods, n):
+    def getSignal(self, maxTimeInterval, n=500):
         """
         @return:
         """
 
         # periodos * (1/f0) es cuenta tiene q dar mayor a 1. si es menor a uno poner 1
-
+        self.maxTimeInterval = maxTimeInterval
         '''if(maxT<1):
             t = np.linspace(0,1,n)
         else:
@@ -50,7 +47,7 @@ class Cuentas:
         y = np.sin(2 * np.pi * self.f0 * t)
         return [t, y]
 
-    def getAliasSignal(self, n):
+    def getAliasSignal(self, n=500):
         """
 
         @return:

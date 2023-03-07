@@ -1,5 +1,5 @@
 # PyQt5 modules
-from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
 # Project modules
 from src.ui.mainwindow import Ui_MainWindow
@@ -27,6 +27,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.scaleSlider.sliderMoved.connect(self.scaleSliderMoved)
         self.filterCheck.clicked.connect(self.filterCheckClicked)
         self.aliasCheck.clicked.connect(self.aliasCheckClicked)
+        self.plotButton.clicked.connect(self.maxTimeIntervalChanged)
 
     def updatePlots(self):
         self.plotRuler()
@@ -44,8 +45,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
 
     def plotTemp(self):
-        array_f0 = self.cuentas.getSignal(10, 300)
-        array_fAlias = self.cuentas.getAliasSignal(300)
+        array_f0 = self.cuentas.getSignal(self.strToFloat(self.maxIntervalDouble.text()))
+        array_fAlias = self.cuentas.getAliasSignal()
         array_fS = self.cuentas.getSamplingPoints()
         maxTimeInterval = self.cuentas.getMaxTimeInterval()
 
@@ -82,3 +83,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def aliasCheckClicked(self):
         self.updatePlots()
+
+    def maxTimeIntervalChanged(self):
+        self.updatePlots()
+
+
+    def strToFloat(self, string):
+        res = 0
+        try:
+            if string == '':
+                res = 0
+            else:
+                res = float(string)
+
+        except ValueError:
+            res = 0
+            self.warningNotFloat()
+
+        return res
+
+    def warningNotFloat(self):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Warning)
+        msgBox.setText("Ingrese un número valido")
+        msgBox.setWindowTitle("Advertencia")
+        msgBox.exec()
+        return
+

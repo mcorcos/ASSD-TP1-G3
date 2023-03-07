@@ -426,13 +426,10 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="filterCheck">
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="maxIntervalDouble">
             <property name="text">
-             <string>Show spectrum before LP Filter</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
+             <string>1.0</string>
             </property>
            </widget>
           </item>
@@ -446,7 +443,31 @@
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
+          <item row="0" column="1" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Max Time Interval [s]</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="filterCheck">
+            <property name="text">
+             <string>Show spectrum before LP Filter</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3" alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_9">
+            <property name="text">
+             <string>Max Freq Scale</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
            <widget class="QSlider" name="scaleSlider">
             <property name="minimum">
              <number>1</number>
@@ -462,10 +483,10 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2" alignment="Qt::AlignHCenter">
-           <widget class="QLabel" name="label_9">
+          <item row="2" column="2">
+           <widget class="QPushButton" name="plotButton">
             <property name="text">
-             <string>Max Freq Scale</string>
+             <string>Graficar</string>
             </property>
            </widget>
           </item>

@@ -61,19 +61,24 @@ class RulerPlot(MplCanvas):
         fNy_patch = mpatches.Patch(color='k', label='f.Nyquist')
 
         # ticks en eje x de las deltas
-        # self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
-        # arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        # self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
-        # arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        # self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
-        #  arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
-        # self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
-        # arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        '''
+        self.axes.annotate(str(fS/2), xy=(fS/2, 0), xytext=(fS/2, -0.5),
+        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+
+        self.axes.annotate(str(fS), xy=(fS, 0), xytext=(fS, -0.5),
+        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+
+        self.axes.annotate(str(fAlias), xy=(fAlias, 0), xytext=(fAlias, -0.5),
+        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+
+        self.axes.annotate(str(f0), xy=(f0, 0), xytext=(f0, -0.5),
+        arrowprops=dict(facecolor='black', arrowstyle="->"), ha="center")
+        '''
 
         self.axes.legend(handles=[fS_patch, f0_patch, fAlias_patch, fH_patch, fNy_patch],
                          ncol=5, prop={'size': 7}, loc='upper right')
 
-        self.fig.canvas.draw_idle()
+        self.fig.canvas.draw()
 
 
 class TempPlot(MplCanvas):
@@ -94,16 +99,16 @@ class TempPlot(MplCanvas):
         # hide y-axis
         self.axes.get_yaxis().set_visible(False)
         self.axes.axhline(y=0, color='black')
-        # grafico los samples
-
-        if len(array_fS[0]) > 0:
-            self.axes.stem(array_fS[0], array_fS[1], 'r', 'or')
 
         # grafico la frecuencia de la señal
         self.axes.plot(array_f0[0], array_f0[1], color='b')
+
+        # grafico los samples
+        if len(array_fS[0]) > 0:
+            self.axes.stem(array_fS[0], array_fS[1], 'r', 'or')
 
         # grafico Alias
         if array_fAlias[0] is not None:
             self.axes.plot(array_fAlias[0], array_fAlias[1], color='g', linestyle='dashed')
 
-        self.fig.canvas.draw_idle()
+        self.fig.canvas.draw()
