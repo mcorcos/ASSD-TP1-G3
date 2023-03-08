@@ -94,7 +94,7 @@ class TempPlot(MplCanvas):
             self.axes.stem(array_fS[0], array_fS[1], 'r', 'or')
 
         # grafico Alias
-        if array_fAlias[0] is not None:
+        if array_fAlias is not None:
             self.axes.plot(array_fAlias[0], array_fAlias[1], color='g', linestyle='dashed')
             #grafico el label de alias
 

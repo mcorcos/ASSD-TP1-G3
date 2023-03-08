@@ -51,7 +51,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         maxTimeInterval = self.cuentas.getMaxTimeInterval()
 
         if not self.aliasCheck.isChecked():
-            array_fAlias = [[], []]
+            array_fAlias = None
         self.tempPlot.plot(array_f0, array_fS, array_fAlias, maxTimeInterval)
 
     # Configuración de las pestañas y clicks
