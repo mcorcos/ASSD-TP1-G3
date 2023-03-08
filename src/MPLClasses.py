@@ -62,7 +62,7 @@ class RulerPlot(MplCanvas):
 
 
         self.axes.legend(handles=[fS_patch, f0_patch, fAlias_patch, fH_patch, fNy_patch],
-                         ncol=5, prop={'size': 5}, loc='upper right')
+                         ncol=5, prop={'size': 7}, loc='upper right')
 
         self.fig.canvas.draw()
 
