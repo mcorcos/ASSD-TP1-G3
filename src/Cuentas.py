@@ -127,7 +127,7 @@ class Cuentas:
         t = np.linspace(0, self.maxTimeInterval, 1000)
         y = [0 for i in range(len(t))]
         for i in range(len(amplitudes)):
-            y = y + amplitudes[i] * np.cos(2 * np.pi * frecuencia[i] * t + fase[i] * np.pi / 180)
+            y += amplitudes[i] * np.cos(2 * np.pi * frecuencia[i] * t + fase[i] * np.pi / 180)
 
         return [t, y]
 
