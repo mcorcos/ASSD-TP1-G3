@@ -62,7 +62,7 @@ class RulerPlot(MplCanvas):
 
 
         self.axes.legend(handles=[fS_patch, f0_patch, fAlias_patch, fH_patch, fNy_patch],
-                         ncol=5, prop={'size': 7}, loc='upper right')
+                         ncol=5, prop={'size': 7})
 
         self.fig.canvas.draw()
 
@@ -94,14 +94,14 @@ class TempPlot(MplCanvas):
             self.axes.stem(array_fS[0], array_fS[1], 'r', 'or')
 
         # grafico Alias
-        if array_fAlias is not None:
+        if array_fAlias[0] is not None:
             self.axes.plot(array_fAlias[0], array_fAlias[1], color='g', linestyle='dashed')
             #grafico el label de alias
 
-            fAlias_patch = mpatches.Patch(color='g', label='fAlias='+str(array_fAlias[2])+'Hz')
+            # fAlias_patch = mpatches.Patch(color='g', label='fAlias='+str(array_fAlias[2])+'Hz')
 
-            self.axes.legend(handles=[fAlias_patch],
-                        ncol=5, prop={'size': 7}, loc='upper center')
+            # self.axes.legend(handles=[fAlias_patch],
+            #            ncol=5, prop={'size': 7}, loc='upper center')
         
 
         self.fig.canvas.draw()

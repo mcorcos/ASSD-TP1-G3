@@ -46,12 +46,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def plotTemp(self):
         array_f0 = self.cuentas.getSignal(self.strToFloat(self.maxIntervalDouble.text()))
-        array_fAlias = self.cuentas.getAliasSignal()
+        array_fAlias = self.cuentas.getLPSignal(n=1)
         array_fS = self.cuentas.getSamplingPoints()
         maxTimeInterval = self.cuentas.getMaxTimeInterval()
 
         if not self.aliasCheck.isChecked():
-            array_fAlias = None
+            array_fAlias = [None, None, None]
+
         self.tempPlot.plot(array_f0, array_fS, array_fAlias, maxTimeInterval)
 
     # Configuración de las pestañas y clicks
