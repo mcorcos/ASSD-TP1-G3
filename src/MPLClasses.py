@@ -1,6 +1,7 @@
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 # NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
+import numpy as np
 
 import matplotlib.patches as mpatches
 
@@ -41,8 +42,9 @@ class RulerPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
 
         # creo las deltas para cada caso
-        if len(harmonics[0]) > 0:
-            self.axes.stem(harmonics[0], harmonics[1], 'm', '^m')
+        n = len(harmonics)
+        if n > 0:
+            self.axes.stem(harmonics, np.ones(n) * 0.6, 'm', '^m')
 
         self.axes.stem(f0, 0.6, 'b', '^b')
         self.axes.stem(fS, 0.6, '--r', 'r')

@@ -28,7 +28,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.filterCheck.clicked.connect(self.filterCheckClicked)
         self.aliasCheck.clicked.connect(self.aliasCheckClicked)
         self.plotButton.clicked.connect(self.maxTimeIntervalChanged)
-        self.orderText.changed.connect(self.OrderText)
+        self.orderValue.valueChanged.connect(self.orderTextChanged)
+        self.filterTypeBox.currentIndexChanged.connect(self.comboBoxChanged)
 
     def updatePlots(self):
         self.plotRuler()
@@ -41,14 +42,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         f0, fS, fAlias, harmonics = self.cuentas.getFrequencies(fSig, fSample, fMax)
 
         if not self.filterCheck.isChecked():
-            harmonics = [[], []]
+            harmonics = []
 
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
 
     def plotTemp(self):
         order = self.orderValue.value()
         array_f0 = self.cuentas.getSignal(self.strToFloat(self.maxIntervalDouble.text()))
-        array_fAlias = self.cuentas.getLPSignal(n=order)
+
+        filterType = self.filterTypeBox.currentText()
+
+        if filterType == "Ideal Filter":
+            array_fAlias = self.cuentas.getAliasSignal(n=1000)
+
+        elif filterType == "Real Filter":
+            array_fAlias = self.cuentas.getLPSignal(n=order)
+
         array_fS = self.cuentas.getSamplingPoints()
         maxTimeInterval = self.cuentas.getMaxTimeInterval()
 
@@ -57,13 +66,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.tempPlot.plot(array_f0, array_fS, array_fAlias, maxTimeInterval)
 
+        self.labelHarmonics.setText(str(self.cuentas.getNumberOfHarmonics()))
+
     # Configuración de las pestañas y clicks
     def sliderSigToDouble(self, value):
         val = float(value)
         self.signalFreq.setValue(val)
         self.updatePlots()
-
-
 
     def doubleToSliderSig(self, value):
         val = int(value)
@@ -92,6 +101,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def maxTimeIntervalChanged(self):
         self.updatePlots()
 
+    def orderTextChanged(self):
+        self.updatePlots()
+
+    def comboBoxChanged(self):
+        self.updatePlots()
 
     def strToFloat(self, string):
         res = 0
