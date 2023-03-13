@@ -28,7 +28,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.filterCheck.clicked.connect(self.filterCheckClicked)
         self.aliasCheck.clicked.connect(self.aliasCheckClicked)
         self.plotButton.clicked.connect(self.maxTimeIntervalChanged)
-
+        self.orderText.changed.connect(self.OrderText)
 
     def updatePlots(self):
         self.plotRuler()
