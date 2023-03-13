@@ -29,6 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.aliasCheck.clicked.connect(self.aliasCheckClicked)
         self.plotButton.clicked.connect(self.maxTimeIntervalChanged)
 
+
     def updatePlots(self):
         self.plotRuler()
         self.plotTemp()
@@ -45,8 +46,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
 
     def plotTemp(self):
+        order = self.orderValue.value()
         array_f0 = self.cuentas.getSignal(self.strToFloat(self.maxIntervalDouble.text()))
-        array_fAlias = self.cuentas.getLPSignal(n=1)
+        array_fAlias = self.cuentas.getLPSignal(n=order)
         array_fS = self.cuentas.getSamplingPoints()
         maxTimeInterval = self.cuentas.getMaxTimeInterval()
 
@@ -60,6 +62,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         val = float(value)
         self.signalFreq.setValue(val)
         self.updatePlots()
+
+
 
     def doubleToSliderSig(self, value):
         val = int(value)

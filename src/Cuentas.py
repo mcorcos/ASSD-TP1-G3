@@ -1,5 +1,5 @@
 import numpy as np
-
+import scipy.signal as signal
 
 class Cuentas:
     """
@@ -7,9 +7,10 @@ class Cuentas:
 
     """
 
-    def __init__(self, f0=20, fS=22, maxTimeInterval=1, maxF=5):
+    def __init__(self, f0=20, fS=22,order = 1 ,  maxTimeInterval=1, maxF=5):
         self.fS = fS
         self.f0 = f0
+        self.order = order
         self.masxTimeInterval = maxTimeInterval
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
@@ -88,6 +89,9 @@ class Cuentas:
         amplitudes = []
         fase = []
         amp = 1
+        tf = TransferFunction( w0=self.fS * 2 * np.pi / 2 ,n=n )
+
+
 
         alias = self.f0 % self.fS
         if alias > self.fS / 2:
@@ -99,9 +103,9 @@ class Cuentas:
         end = False
 
         while not end:
-            H = LPFilter(w=f1 * 2 * np.pi, w0=self.fS * 2 * np.pi / 2, n=n)
-            amp = 1 * np.abs(H)
-            pha = np.angle(H, deg=True)
+            w , H = signal.freqResp(tf,f1 * 2 * np.pi)
+            amp = 1 * np.abs(H[0])
+            pha = np.angle(H[0], deg=True)
 
             if amp < 1 / 256:
                 end = True
@@ -110,9 +114,9 @@ class Cuentas:
                 amplitudes.append(amp)
                 fase.append(pha)
 
-                H = LPFilter(w=f2 * 2 * np.pi, w0=self.fS * 2 * np.pi / 2, n=n)
-                amp = 1 * np.abs(H)
-                pha = np.angle(H, deg=True)
+                w , H = signal.freqResp(tf,f2 * 2 * np.pi)
+                amp = 1 * np.abs(H[0])
+                pha = np.angle(H[0], deg=True)
 
                 if amp < 1 / 256:
                     end = True
@@ -180,5 +184,9 @@ class Cuentas:
 
         return harmonics
 
-def LPFilter(w, w0=1.0, n=1.0):
-    return 1 / np.power(((1j * w / (w0 / np.sqrt(np.power(2, 1/n) - 1))) + 1), n)
+def TransferFunction(w0=1.0, n=1.0):
+    #return 1 / np.power(((1j * w / (w0 / np.sqrt(np.power(2, 1/n) - 1))) + 1), n)
+    z,p,k = signal.butter(n, w0, 'low', analog=True ,  output='zpk')
+    tf = signal.ZerosPolesGain(z, p, k)
+    return tf
+
