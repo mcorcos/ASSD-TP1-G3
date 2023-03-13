@@ -181,4 +181,4 @@ class Cuentas:
         return harmonics
 
 def LPFilter(w, w0=1.0, n=1.0):
-    return 1 / ((((1j * w) / w0) + 1) ** n)
+    return 1 / np.power(((1j * w / (w0 / np.sqrt(np.power(2, 1/n) - 1))) + 1), n)
