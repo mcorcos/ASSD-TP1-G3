@@ -15,6 +15,7 @@ class Cuentas:
         self.masxTimeInterval = maxTimeInterval
         self.fAlias = self.calculateAliasFrequency()
         self.harmonics = self.calculateHarmonics(maxF)
+        self.LPHarmonics = [[],[]]
 
     def getFrequencies(self, f0, fS, maxF):
         """
@@ -119,6 +120,7 @@ class Cuentas:
                 amplitudes.append(amp)
                 fase.append(pha)
 
+
                 w , H = signal.freqresp(tf, f2 * 2 * np.pi)
                 amp = 1 * np.abs(H[0])
                 pha = np.angle(H[0], deg=True)
@@ -139,11 +141,15 @@ class Cuentas:
             y += amplitudes[i] * np.cos(2 * np.pi * frecuencia[i] * t + fase[i] * np.pi / 180)
 
         self.numberOfHarmonics = len(amplitudes)
+        self.LPHarmonics = [frecuencia, amplitudes]
 
         return [t, y]
 
     def getNumberOfHarmonics(self):
         return self.numberOfHarmonics
+
+    def getLPHarmonics(self):
+        return self.LPHarmonics
 
     ###################################################################################
     ###################################################################################
@@ -179,20 +185,24 @@ class Cuentas:
             delta = self.fS - delta
 
         x = []
+        y = []
 
-        harmonics = x
+        harmonics = [x, y]
 
         f1 = delta
         f2 = self.fS - delta
         while f1 < maxF:
-            harmonics.append(f1)
-            harmonics.append(f2)
+            harmonics[0].append(f1)
+            harmonics[0].append(f2)
+            harmonics[1].append(1)
+            harmonics[1].append(1)
             f1 += self.fS
             f2 += self.fS
 
         return harmonics
 
-def TransferFunction(w0=1.0, n=1.0):
+
+def TransferFunction(w0=1.0, n=1):
     z, p, k = signal.butter(n, w0, 'low', analog=True,  output='zpk')
     tf = signal.ZerosPolesGain(z, p, k)
     return tf

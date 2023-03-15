@@ -42,9 +42,10 @@ class RulerPlot(MplCanvas):
         self.axes.get_yaxis().set_visible(False)
 
         # creo las deltas para cada caso
-        n = len(harmonics)
+        n = len(harmonics[0])
+        my_new_list = [i * 0.6 for i in harmonics[1]]
         if n > 0:
-            self.axes.stem(harmonics, np.ones(n) * 0.6, 'm', '^m')
+            self.axes.stem(harmonics[0], my_new_list, 'm', '^m')
 
         self.axes.stem(f0, 0.6, 'b', '^b')
         self.axes.stem(fS, 0.6, '--r', 'r')

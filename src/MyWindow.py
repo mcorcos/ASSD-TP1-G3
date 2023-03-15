@@ -42,7 +42,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         f0, fS, fAlias, harmonics = self.cuentas.getFrequencies(fSig, fSample, fMax)
 
         if not self.filterCheck.isChecked():
-            harmonics = []
+            harmonics = self.cuentas.getLPHarmonics()
 
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
 
