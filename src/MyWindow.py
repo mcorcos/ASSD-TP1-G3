@@ -42,6 +42,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         f0, fS, fAlias, harmonics = self.cuentas.getFrequencies(fSig, fSample, fMax)
 
         if not self.filterCheck.isChecked():
+            if self.filterTypeBox.currentText() == "Real Filter":
+                self.cuentas.getLPSignal(n=self.orderValue.value())  # calculo el filtro antes
+                fAlias = None
+                f0 = None
             harmonics = self.cuentas.getLPHarmonics()
 
         self.rulerPlot.plot(f0, fS, fAlias, harmonics, fMax)
