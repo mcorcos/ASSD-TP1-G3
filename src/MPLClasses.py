@@ -45,15 +45,15 @@ class RulerPlot(MplCanvas):
         n = len(harmonics[0])
         my_new_list = [i * 0.6 for i in harmonics[1]]
         if n > 0:
-            self.axes.stem(harmonics[0], my_new_list, 'm', '^m')
+            self.axes.stem(harmonics[0], my_new_list,linefmt= 'm',markerfmt='^m')
         if f0 is not None:
-            self.axes.stem(f0, 0.6, 'b', '^b')
-        self.axes.stem(fS, 0.6, '--r', 'r')
+            self.axes.stem(f0, 0.6,linefmt= 'b',markerfmt='^b')
+        self.axes.stem(fS, 0.6, linefmt='--r',markerfmt= 'r')
 
         if fAlias is not None:
-            self.axes.stem(fAlias, 0.6, 'g', '^g')
+            self.axes.stem(fAlias, 0.6, linefmt='g', markerfmt='^g')
 
-        self.axes.stem(fS/2, 0.6, '--k', 'k')
+        self.axes.stem(fS/2, 0.6, linefmt='--k', markerfmt='k')
 
         # stems labeling
 
@@ -94,7 +94,7 @@ class TempPlot(MplCanvas):
 
         # grafico los samples
         if len(array_fS[0]) > 0:
-            self.axes.stem(array_fS[0], array_fS[1], 'r', 'or')
+            self.axes.stem(array_fS[0], array_fS[1], linefmt='r', markerfmt='or')
 
         # grafico Alias
         if array_fAlias[0] is not None:
