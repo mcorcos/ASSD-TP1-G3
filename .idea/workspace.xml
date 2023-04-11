@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="TP1 - Mejorado">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MPLClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MPLClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MyWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MyWindow.py" afterDir="false" />
-    </list>
+    <list default="true" id="b7458d3e-f081-4bc2-b195-981ae15be6b8" name="Changes" comment="TP0 - Versión final" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -272,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678842750957</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="TP0 - Versión final">
+      <created>1678844942924</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1678844942924</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -305,7 +308,8 @@
     <MESSAGE value="No sé si está bien lo observado" />
     <MESSAGE value="Ya está TP1" />
     <MESSAGE value="TP1 - Mejorado" />
-    <option name="LAST_COMMIT_MESSAGE" value="TP1 - Mejorado" />
+    <MESSAGE value="TP0 - Versión final" />
+    <option name="LAST_COMMIT_MESSAGE" value="TP0 - Versión final" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
